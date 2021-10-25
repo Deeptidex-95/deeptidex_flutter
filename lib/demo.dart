@@ -2,17 +2,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Demo1 extends StatefulWidget {
+class Demo extends StatefulWidget {
 
 
   @override
-  _Demo1State createState() => _Demo1State();
+  _DemoState createState() => _DemoState();
 }
 
-class _Demo1State extends State<Demo1>
+class _DemoState extends State<Demo>
 {
-  @override
-  var list = <Map>[];
   final List<Map<String, Object>> myPhraseList = [
     {'phrase': 'Phrase 1 some interesting phrase'},
     {'phrase': 'Phrase 2 and yet another interesting phrase'},

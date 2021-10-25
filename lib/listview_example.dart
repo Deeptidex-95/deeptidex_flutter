@@ -1,12 +1,12 @@
 import 'dart:async';
-import 'dart:convert';
+
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+
 
 import 'models/user.dart';
-import 'my_name.dart';
+
 /*
 Future<UserDetail> fetchAlbum() async {
   final response = await http
@@ -49,7 +49,7 @@ class _ListViewExampleState extends State<ListViewExample> {
 
 
   }
-var takedata;
+var takeData;
   @override
   Widget build(BuildContext context)
   {
@@ -57,7 +57,7 @@ var takedata;
       Fluttertoast.showToast(
 
           fontSize: 20,
-          msg: takedata,
+          msg: takeData,
            toastLength: Toast.LENGTH_LONG,
           gravity: ToastGravity.CENTER,
 
@@ -66,7 +66,7 @@ var takedata;
 
       );
     }
-    void _showToast(BuildContext context) {
+   /* void _showToast(BuildContext context) {
       final scaffold = Scaffold.of(context);
       // ignore: deprecated_member_use
       scaffold.showSnackBar(
@@ -80,7 +80,7 @@ var takedata;
           ),
         ),
       );
-    }
+    }*/
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
@@ -172,7 +172,7 @@ var takedata;
                                     ),
                                     onTap: () {
                                       setState(() {
-                                        takedata = myProducts[index]["name"];
+                                        takeData = myProducts[index]["name"];
                                         showToast();
                                       });
                                       /* Navigator.push(
@@ -287,8 +287,8 @@ var takedata;
               width: MediaQuery.of(context).size.width,
 
               child: Center(child:
-                takedata == null ?
-             Text('Please Select Product  '):  Text(takedata) )
+                takeData == null ?
+             Text('Please Select Product  '):  Text(takeData) )
           ),
         )
       ),

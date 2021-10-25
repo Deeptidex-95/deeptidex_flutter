@@ -54,6 +54,7 @@ class _NewTransactionState extends State<NewTransaction> {
               onSubmitted: (_) => submitData(),
               // onChanged: (val) => amountInput = val,
             ),
+            // ignore: deprecated_member_use
             FlatButton(
               child: Text('Add Transaction'),
               textColor: Colors.purple,

@@ -1,17 +1,7 @@
-import 'package:button_prj/pop_up_and_dialog.dart';
-import 'package:button_prj/sign_up.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-import 'api_calling.dart';
-import 'button_files.dart';
-import 'demo.dart';
-import 'example.dart';
-import 'flexible.dart';
-//import 'gridview_example.dart';
-import 'listview_example.dart';
-import 'mainfile.dart';
-import 'new_sign_up.dart';
+import 'package:button_prj/pages/user_details.dart';
+import 'package:flutter/material.dart';
+
 
 void main()
 {
@@ -21,7 +11,7 @@ void main()
 
         MaterialApp(
           debugShowCheckedModeBanner: false,
-          home:  NewSignUp(),
+          home:  UserDetails(),
           // ListViewWithApi() ,
         ));
   }

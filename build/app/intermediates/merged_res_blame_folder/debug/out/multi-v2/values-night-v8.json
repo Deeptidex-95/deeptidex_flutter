@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Projects/deepti/first_project/button_prj/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "/Users/Projects/deepti/flutter_practice_project/deeptidex_flutter/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/Projects/deepti/first_project/button_prj/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/Projects/deepti/flutter_practice_project/deeptidex_flutter/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

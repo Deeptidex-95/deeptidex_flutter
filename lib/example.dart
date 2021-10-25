@@ -16,14 +16,14 @@ class _ExampleState extends State<Example> {
   Widget build(BuildContext context) {
     FocusNode nodeOne = FocusNode();
     FocusNode nodeTwo = FocusNode();
-    double  screenHeight = MediaQuery.of(context).size.height ;
+    /*double  screenHeight = MediaQuery.of(context).size.height ;
     double screenWidth = MediaQuery.of(context).size.width;
-    double statusBarHeight = MediaQuery.of(context).padding.top;
+    double statusBarHeight = MediaQuery.of(context).padding.top;*/
     final _controller1 = TextEditingController();
     final _controller2 = TextEditingController();
-    String val;
 
-    var ui;
+
+
     return  Scaffold(
       body: Stack(
         children: [

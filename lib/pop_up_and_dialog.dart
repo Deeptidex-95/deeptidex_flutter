@@ -10,8 +10,7 @@ class PopUpAndDialog extends StatefulWidget {
 class _PopUpAndDialogState extends State<PopUpAndDialog>
 {
 
-  @override
-  Dialog leadDialog = Dialog(
+ /* Dialog leadDialog = Dialog(
     child: Container(
       height: 300.0,
       width: 360.0,
@@ -30,7 +29,7 @@ class _PopUpAndDialogState extends State<PopUpAndDialog>
         ],
       ),
     ),
-  );
+  );*/
  /* Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(

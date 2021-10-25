@@ -1,10 +1,10 @@
-import 'package:button_prj/my_name.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 
 
-class Example extends StatelessWidget
+class GridViewExample extends StatelessWidget
 {
   final List<Map> myProducts =
   List.generate(100000, (index) => {"id": index, "name": "Product $index",
