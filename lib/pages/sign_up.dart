@@ -46,6 +46,7 @@ class _SignUpState extends State<SignUp> {
                 fontSize: 12.0,
                 color: Colors.black26
             ),
+
                   border: OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.circular(46.0)

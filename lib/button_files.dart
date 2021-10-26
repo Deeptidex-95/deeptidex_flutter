@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 
 import 'listview_example.dart';
 
-class Button_Files extends StatefulWidget {
+class ButtonFiles extends StatefulWidget {
   @override
-  _Button_FilesState createState() => _Button_FilesState();
+  _ButtonFilesState createState() => _ButtonFilesState();
 }
 
-class _Button_FilesState extends State<Button_Files> {
+class _ButtonFilesState extends State<ButtonFiles> {
 
   @override
   Widget build(BuildContext context) {

@@ -317,10 +317,12 @@ class _UserDetailsState extends State<UserDetails>
 
 
 // Interface practice
-class DemoInterface {
+ class DemoInterface {
+
   void showData() {
     print(" Method 1  ");
   }
+
 }
 
 // Class Demo implementing Demointerface
@@ -328,4 +330,5 @@ class Demo implements DemoInterface{
   void showData() {
     print(" implement Demo Interface");
   }
+
 }
