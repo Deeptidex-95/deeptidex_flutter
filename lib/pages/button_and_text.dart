@@ -92,7 +92,7 @@ class _ButtonAndTextState extends State<ButtonAndText>
       appBar: AppBar(
         elevation: 0.0,
        backgroundColor: Colors.pink[100],
-        leading: backButton,
+        leading: backButton(context),
       ),
       body: Column(
         children: [
@@ -194,10 +194,11 @@ Widget userDetailL (screenWidth) =>  Card(
 
 
 // AppBar back button
-Widget backButton = IconButton(
+Widget backButton(context) => IconButton(
   color: Colors.white70,
   iconSize: 30,
   onPressed: () {
+    Navigator.of(context).pop();
   },
   icon: Icon(Icons.arrow_back),
 );

@@ -1,5 +1,6 @@
 import 'package:button_prj/common_text_style/common_text_style.dart';
 import 'package:button_prj/scroll_behavior.dart';
+import 'package:button_prj/widgets/common_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ CommonTextStyle _commonTextStyle = CommonTextStyle();
 
 class _UserDetailsState extends State<UserDetails>
 {
+  CommonWidget _commonWidget = CommonWidget();
   String fName = " Please Enter First Name";
   String lName = "Please Enter Last Name ";
   TextEditingController _fNameController = TextEditingController();
@@ -26,7 +28,7 @@ class _UserDetailsState extends State<UserDetails>
     screenHeight = MediaQuery.of(context).size.height;
    
     // Email text input  field
-    Widget emailFieldE = Container(
+    Widget fNameFieldE = Container(
       decoration: BoxDecoration(
           border: Border.all(
             color: Color(0xFF5D3F3).withOpacity(0.1),
@@ -60,7 +62,7 @@ class _UserDetailsState extends State<UserDetails>
     );
 
 // Password text input field
-    Widget passwordFieldE = Container(
+    Widget lNameFieldE = Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(46.0),
       ),
@@ -87,24 +89,7 @@ class _UserDetailsState extends State<UserDetails>
     );
 
 // Sign up button
-    Widget signUpButton = Padding(
-      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(40.0)),
-            primary: Color(0xFF74D6B8),
-            minimumSize: Size(double.infinity,55)),
-        onPressed: () {
-          FocusScope.of(context).requestFocus();
-        },
-        child: Text(
-          "Next",
-          style: TextStyle(color: Colors.white70),
-        ),
 
-      ),
-    );
     return
      Scaffold(
         appBar: AppBar(
@@ -133,13 +118,13 @@ class _UserDetailsState extends State<UserDetails>
                         SizedBox(
                           height: 8.0,
                         ),
-                        emailFieldE,
+                        fNameFieldE,
                         hightSpaceBetween,
                         passwordFieldL,
                         SizedBox(
                           height: 8.0,
                         ),
-                        passwordFieldE,
+                        lNameFieldE,
                         hightSpaceBetween,
                       ],
                     ),
@@ -151,7 +136,7 @@ class _UserDetailsState extends State<UserDetails>
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.end,
-                          children: [signUpDetailL, signUpButton ],
+                          children: [signUpDetailL, _commonWidget.signUpButton(context) ],
                         )),
                   ),
                 ],

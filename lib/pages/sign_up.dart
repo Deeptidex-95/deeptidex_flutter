@@ -1,16 +1,23 @@
 
 import 'package:button_prj/common_text_style/common_text_style.dart';
+import 'package:button_prj/widgets/common_next_button.dart';
+import 'package:button_prj/widgets/common_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
+import 'button_and_text.dart';
 
 
 class SignUp extends StatefulWidget {
   @override
   _SignUpState createState() => _SignUpState();
 }
-CommonTextStyle _commonTextStyle = CommonTextStyle();
+
 class _SignUpState extends State<SignUp> {
+  
+  CommonTextStyle _commonTextStyle = CommonTextStyle();
+  CommonWidget _commonWidget = CommonWidget();
   String emailHintTxt = " Please Enter Email";
   String passwordHintTxt = "Please Enter Password ";
   double screenHeight = 0.0;
@@ -111,23 +118,7 @@ class _SignUpState extends State<SignUp> {
       ),
     );
 
-    // Signup Button
-    Widget signUpButton =
-    Padding(
-      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-      child: ElevatedButton(
-       style: ElevatedButton.styleFrom(
-           shape: RoundedRectangleBorder(
-               borderRadius: BorderRadius.circular(50.0)),
-           primary: Color(0xFF74D6B8),
-           minimumSize: Size(double.infinity, 55)),
-       onPressed: () {
-         FocusScope.of(context).requestFocus();
-       },
-       child: Text("Next", style: TextStyle(color: Colors.white70),),
 
-          ),
-    );
 
 
     return MaterialApp(
@@ -171,7 +162,27 @@ class _SignUpState extends State<SignUp> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           signUpDetailL,
-                          signUpButton,
+                          CommonNextButton(
+                            child: Text('my button'),
+
+                            buttonName: "Move to Next Page",
+                            widthSize: 100,
+                            heightSize:50,
+                              decoration: BoxDecoration(
+                                color: Colors.amberAccent,
+                                 borderRadius: BorderRadius.circular(12.0)
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => ButtonAndText()),
+                                );
+                              },
+
+
+                          ),
+                          _commonWidget.signUpButton(context),
+                          
                         ],
                       )),
                 ),
