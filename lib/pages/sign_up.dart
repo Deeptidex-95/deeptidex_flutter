@@ -2,6 +2,7 @@
 import 'package:button_prj/common_text_style/common_text_style.dart';
 import 'package:button_prj/widgets/common_next_button.dart';
 import 'package:button_prj/widgets/common_widget.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -14,20 +15,26 @@ class SignUp extends StatefulWidget {
   _SignUpState createState() => _SignUpState();
 }
 
-class _SignUpState extends State<SignUp> {
-  
+class _SignUpState extends State<SignUp>
+{
+  bool isChecked = false;
   CommonTextStyle _commonTextStyle = CommonTextStyle();
   CommonWidget _commonWidget = CommonWidget();
   String emailHintTxt = " Please Enter Email";
   String passwordHintTxt = "Please Enter Password ";
   double screenHeight = 0.0;
+  double screenWidth = 0.0;
   TextEditingController _fNameController = TextEditingController();
   TextEditingController _lNameController = TextEditingController();
   FocusNode nodeTwo = FocusNode();
+ // bool _switchValue=true;
   bool _passwordVisible = false;
-
+  var isSelected = [false, true];
+ //   List<bool> _selections = List.generate(3, (_) => false);
   Widget build(BuildContext context) {
     screenHeight   = MediaQuery.of(context).size.height;
+    screenWidth =  MediaQuery.of(context).size.width;
+//    int buttonIndex = 0;
     // Email text input  field -
     Widget emailFieldE =
     Container(
@@ -118,9 +125,6 @@ class _SignUpState extends State<SignUp> {
       ),
     );
 
-
-
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home:
@@ -132,7 +136,7 @@ class _SignUpState extends State<SignUp> {
           leading:  backButton,
         ),
         body: Padding(
-          padding: const EdgeInsets.only(left: 25.0, right: 25.0, top: 50.0),
+          padding: const EdgeInsets.only(left: 25.0, right: 25.0, ),
           child: SingleChildScrollView(
             physics: NeverScrollableScrollPhysics(),
             child:
@@ -140,6 +144,22 @@ class _SignUpState extends State<SignUp> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 signUpButtonL,
+            /*  GestureDetector(
+                onTap: () {
+                  setState(() {
+                    isChecked = !isChecked;
+                  });
+                },
+                child: Center(
+                  child: CustomSwitchButton(
+                    backgroundColor: Colors.blueGrey,
+                    unCheckedColor: Colors.white,
+                    animationDuration: Duration(milliseconds: 400),
+                    checkedColor: Colors.lightGreen,
+                    checked: isChecked,
+                  ),
+                ),
+              ),*/
                 Container(
                   height: screenHeight / 2.2,
                   child: Column(
@@ -155,22 +175,32 @@ class _SignUpState extends State<SignUp> {
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.only(top: 25.0, bottom: 30),
+                  padding: const EdgeInsets.only(top: 5.0, bottom: 30),
                   child: Align(
                       alignment: Alignment.bottomCenter,
                       child: Column(mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           signUpDetailL,
-                          CommonNextButton(
-                            child: Text('my button'),
-
-                            buttonName: "Move to Next Page",
-                            widthSize: 100,
-                            heightSize:50,
+                           CommonNextButton(
+                            child: Center(child: Text('Back',style: TextStyle(fontSize: 15,color: Colors.white70),),),
+                            widthSize: double.infinity,
+                            heightSize:screenHeight/16,
                               decoration: BoxDecoration(
+                                  boxShadow: [
+                                     //background color of box
+                                    BoxShadow(
+                                      color: Colors.black12,
+                                      blurRadius: 5.0, // soften the shadow
+                                      spreadRadius: 1.0, //extend the shadow
+                                      offset: Offset(
+                                        0.5, // Move to right 10  horizontally
+                                        0.5, // Move to bottom 10 Vertically
+                                      ),
+                                    )
+                                  ],
                                 color: Colors.amberAccent,
-                                 borderRadius: BorderRadius.circular(12.0)
+                                 borderRadius: BorderRadius.circular(40.0)
                               ),
                               onTap: () {
                                 Navigator.push(
@@ -178,8 +208,6 @@ class _SignUpState extends State<SignUp> {
                                   MaterialPageRoute(builder: (context) => ButtonAndText()),
                                 );
                               },
-
-
                           ),
                           _commonWidget.signUpButton(context),
                           

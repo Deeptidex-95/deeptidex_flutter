@@ -14,7 +14,7 @@ class DatePicker extends StatelessWidget {
       title: 'Personal Expenses',
       theme: ThemeData(
           primarySwatch: Colors.purple,
-          accentColor: Colors.amber,
+       //   accentColor: Colors.amber,
           fontFamily: 'Quicksand',
           textTheme: ThemeData.light().textTheme.copyWith(
                 headline6: TextStyle(
@@ -24,6 +24,7 @@ class DatePicker extends StatelessWidget {
                 ),
               ),
           appBarTheme: AppBarTheme(
+            // ignore: deprecated_member_use
             textTheme: ThemeData.light().textTheme.copyWith(
                   headline6: TextStyle(
                     fontFamily: 'OpenSans',
@@ -46,18 +47,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    // Transaction(
-    //   id: 't1',
-    //   title: 'New Shoes',
-    //   amount: 69.99,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't2',
-    //   title: 'Weekly Groceries',
-    //   amount: 16.53,
-    //   date: DateTime.now(),
-    // ),
+     Transaction(
+       id: 't1',
+       title: 'New Shoes',
+      amount: 69.99,
+       date: DateTime.now(),
+     ),
+     Transaction(
+       id: 't2',
+      title: 'Weekly Groceries',
+       amount: 16.53,
+      date: DateTime.now(),
+     ),
   ];
 
   List<Transaction> get _recentTransactions {
@@ -116,6 +117,11 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Chart(_recentTransactions),
+
+
+
+
+
             TransactionList(_userTransactions),
           ],
         ),

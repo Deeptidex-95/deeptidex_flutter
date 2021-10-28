@@ -5,25 +5,31 @@ import 'package:flutter/material.dart';
 
 class CommonWidget
 {
-  // Signup Button for
+  // Signup common  button for all pages
 
-  Widget signUpButton(context) =>
-  Padding(
-    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-    child: ElevatedButton(
-      style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50.0)),
-          primary: Color(0xFF74D6B8),
-          minimumSize: Size(double.infinity, 55)),
-      onPressed: () {
-        FocusScope.of(context).requestFocus();
-      },
-      child: Text("Next", style: TextStyle(color: Colors.white70),),
-    ),
-  );
+  Widget signUpButton(context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(50.0)),
+            primary: Color(0xFF74D6B8),
+            minimumSize: Size(double.infinity, 55)),
+        onPressed: () {
+          FocusScope.of(context).requestFocus();
+        },
+        child: Text("Next", style: TextStyle(color: Colors.white70),),
+      ),
+    );
 
-  Widget nextButton(screenHeight,screenWidth) {
+  }
+
+
+  // Common next button for all pages
+
+  Widget nextButton(screenHeight,screenWidth)
+  {
     return Container(
       height: screenHeight / 15,
       width: screenWidth ,

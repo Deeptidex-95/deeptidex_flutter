@@ -15,62 +15,62 @@ class _ButtonAndTextState extends State<ButtonAndText>
   double screenHeight = 0.0;
   double screenWidth  = 0.0;
   List userDetailList = [] ;
+ late  int _id = -1 ;
    var response = {
     "data": [
       {
-        "fname": "John",
-        "lname": "Son",
-           "btnname" :"toggle Button" ,
+        "f_name": "John",
+        "l_name": "Son",
+         "btn_name" :"toggle Button" ,
         "date" :"26/10/21"
       },
       {
-        "fname": "Angula",
-        "lname": "Sen",
-           "btnname" :"toggle Button" ,
+        "f_name": "Angula",
+        "l_name": "Sen",
+           "btn_name" :"toggle Button" ,
         "date" :"27/10/21"
       },
       {
-        "fname": "Muyaz ",
-        "lname": "khan",
-        "btnname" :"toggle Button",
+        "f_name": "Muyaz ",
+        "l_name": "khan",
+        "btn_name" :"toggle Button",
         "date" :"28/10/21"
       },
       {
-        "fname": "Aarun",
-        "lname": "Sen",
-        "btnname" :"toggle Button",
+        "f_name": "Aarun",
+        "l_name": "Sen",
+        "btn_name" :"toggle Button",
         "date" :"29/10/21"
       },
       {
-        "fname": "John",
-        "lname": "Son",
-        "btnname" :"toggle Button" ,
+        "f_name": "John",
+        "l_name": "Son",
+        "btn_name" :"toggle Button" ,
         "date" :"26/10/21"
       },
       {
-        "fname": "Angula",
-        "lname": "Sen",
-        "btnname" :"toggle Button" ,
+        "f_name": "Angula",
+        "l_name": "Sen",
+        "btn_name" :"toggle Button" ,
         "date" :"27/10/21"
       },
       {
-        "fname": "Muyaz",
-        "lname": "khan",
-        "btnname" :"toggle Button",
+        "f_name": "Muyaz",
+        "l_name": "khan",
+        "btn_name" :"toggle Button",
         "date" :"28/10/21"
       },
       {
-        "fname": "Aarun",
-        "lname": "Sen",
-        "btnname" :"toggle Button",
+        "f_name": "Aarun",
+        "l_name": "Sen",
+        "btn_name" :"toggle Button",
         "date" :"29/10/21"
       },
     ],
-
   };
 
   getListData() async {
-    dynamic _serverTransResponse =  response;
+    dynamic  _serverTransResponse =  response;
       setState(() {
         userDetailList = _serverTransResponse['data'];
       });
@@ -85,9 +85,13 @@ class _ButtonAndTextState extends State<ButtonAndText>
   }
 
   Widget build(BuildContext context) {
+
+    //Define mobile screen height
     screenHeight = MediaQuery.of(context).size.height;
+    // Define mobile screen width
     screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+
       backgroundColor: Colors.pink[50],
       appBar: AppBar(
         elevation: 0.0,
@@ -118,16 +122,38 @@ class _ButtonAndTextState extends State<ButtonAndText>
                             itemBuilder:(context, index) {
                               return Padding(
                                 padding: const EdgeInsets.only(top:8.0),
-                                child: Card(
-                                  child: Row(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: userProfileDetailHeading(),
+                                child: GestureDetector(
+                                   behavior: HitTestBehavior.translucent,
+                                  child: Card(
+                                    child: Row(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: userProfileDetailHeading(),
+                                        ),
+                                        userProfileDetailText(userDetailList,index),
+                                      ],
+
+                                    ),
+                                                     ),
+                                  onTap: (){
+                                    setState((){
+                                      _id = index;
+                                           });
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        duration: Duration(seconds: 1, milliseconds: 10),
+                                        content:   Text(userDetailList[_id]['f_name']),
+                                        action: SnackBarAction(
+                                          label: userDetailList[index]['date'],
+                                          onPressed: () {
+
+                                          },
+                                        ),
                                       ),
-                                      userProfileDetailText(userDetailList,index),
-                                    ],
-                                  ),
+                                    );
+
+                                  },
                                 ),
                               );
                             },),
@@ -145,13 +171,15 @@ class _ButtonAndTextState extends State<ButtonAndText>
 
             ),
           ),
+         /* _id == -1 ? Container():
+          Text(userDetailList[_id]['f_name']),*/
           nextButton(screenHeight,screenWidth),
         ],
       ),
     );
   }
 }
-// Next page button
+// Next  button
 Widget nextButton(screenHeight,screenWidth) {
   return Container(
     height: screenHeight / 15,
@@ -171,11 +199,11 @@ Widget nextButton(screenHeight,screenWidth) {
           "Next",
           style: TextStyle(color: Colors.white70),
         ),
-
       ),
     ),
   );
 }
+
 // top level image
 Widget userProfilePicture()
 {
@@ -185,7 +213,8 @@ Widget userProfilePicture()
     backgroundColor: Colors.white70,
   );
 }
-// User detail Page Detail Label
+
+// User detail Page Detail label
 Widget userDetailL (screenWidth) =>  Card(
     child: Container(
         height: 50,
@@ -202,13 +231,14 @@ Widget backButton(context) => IconButton(
   },
   icon: Icon(Icons.arrow_back),
 );
-// User Detail Page Text Value
+
+// User detail page text value
 Widget  userProfileDetailText(userDetailList,index)
 {
   return   Column(
     children: [
-      Text(userDetailList[index]['fname']),
-      Text(userDetailList[index]['lname']),
+      Text(userDetailList[index]['f_name']),
+      Text(userDetailList[index]['l_name']),
       Text(userDetailList[index]['date'])
     ],
   );

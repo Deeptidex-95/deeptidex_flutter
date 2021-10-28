@@ -14,6 +14,7 @@ CommonTextStyle _commonTextStyle = CommonTextStyle();
 
 class _UserDetailsState extends State<UserDetails>
 {
+  // Define and Decleartion all fields
   CommonWidget _commonWidget = CommonWidget();
   String fName = " Please Enter First Name";
   String lName = "Please Enter Last Name ";
