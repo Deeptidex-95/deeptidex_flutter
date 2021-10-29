@@ -182,33 +182,36 @@ class _SignUpState extends State<SignUp>
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           signUpDetailL,
-                           CommonNextButton(
-                            child: Center(child: Text('Back',style: TextStyle(fontSize: 15,color: Colors.white70),),),
-                            widthSize: double.infinity,
-                            heightSize:screenHeight/16,
-                              decoration: BoxDecoration(
-                                  boxShadow: [
-                                     //background color of box
-                                    BoxShadow(
-                                      color: Colors.black12,
-                                      blurRadius: 5.0, // soften the shadow
-                                      spreadRadius: 1.0, //extend the shadow
-                                      offset: Offset(
-                                        0.5, // Move to right 10  horizontally
-                                        0.5, // Move to bottom 10 Vertically
-                                      ),
-                                    )
-                                  ],
-                                color: Colors.amberAccent,
-                                 borderRadius: BorderRadius.circular(40.0)
-                              ),
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => ButtonAndText()),
-                                );
-                              },
-                          ),
+                          CommonNextButton(color: null,),
+                          //  CommonNextButton(
+                          //    color: Colors.amberAccent,
+                          //             buttonName: 'Move',
+                          //   child: Center(child: Text('Back',style: TextStyle(fontSize: 15,color: Colors.white70),),),
+                          //   widthSize: double.infinity,
+                          //   heightSize:screenHeight/16,
+                          //     decoration: BoxDecoration(
+                          //         boxShadow: [
+                          //            //background color of box
+                          //           BoxShadow(
+                          //             color: Colors.black12,
+                          //             blurRadius: 5.0, // soften the shadow
+                          //             spreadRadius: 1.0, //extend the shadow
+                          //             offset: Offset(
+                          //               0.5, // Move to right 10  horizontally
+                          //               0.5, // Move to bottom 10 Vertically
+                          //             ),
+                          //           )
+                          //         ],
+                          //
+                          //        borderRadius: BorderRadius.circular(40.0)
+                          //     ),
+                          //     onTap: () {
+                          //       Navigator.push(
+                          //         context,
+                          //         MaterialPageRoute(builder: (context) => ButtonAndText()),
+                          //       );
+                          //     },
+                          // ),
                           _commonWidget.signUpButton(context),
                           
                         ],

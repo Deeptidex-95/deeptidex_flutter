@@ -1,8 +1,7 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../practice_test.dart';
 import '../scroll_behavior.dart';
 
 class ButtonAndText extends StatefulWidget {
@@ -173,14 +172,14 @@ class _ButtonAndTextState extends State<ButtonAndText>
           ),
          /* _id == -1 ? Container():
           Text(userDetailList[_id]['f_name']),*/
-          nextButton(screenHeight,screenWidth),
+          nextButton(screenHeight,screenWidth,context),
         ],
       ),
     );
   }
 }
 // Next  button
-Widget nextButton(screenHeight,screenWidth) {
+Widget nextButton(screenHeight,screenWidth,context) {
   return Container(
     height: screenHeight / 15,
     width: screenWidth ,
@@ -193,7 +192,10 @@ Widget nextButton(screenHeight,screenWidth) {
             primary: Colors.pink[100],
             minimumSize: Size(double.infinity / 2, 40)),
         onPressed: () {
-
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PracticeTest()),
+          );
         },
         child: Text(
           "Next",
